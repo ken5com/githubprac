@@ -1,0 +1,13 @@
+# 機密情報
+*.env
+config/secret*
+
+# OS生成ファイル
+.DS_Store
+
+# エディタ設定
+.vscode/
+
+# ログ・一時ファイル
+*.log
+tmp/

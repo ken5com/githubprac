@@ -11,4 +11,4 @@ Git / GitHub の基本操作からチーム運用までを習得する。
 
 ## 学習記録
 - Phase 0-2: 環境構築、基本サイクル、ブランチとPR
-- Phase 3: .gitignore、Issue、履歴管理この行は公開後に取り消します
+- Phase 3: .gitignore、Issue、履歴管理

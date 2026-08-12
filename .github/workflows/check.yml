@@ -1,0 +1,29 @@
+name: Basic Checks
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check for secret-like strings
+        run: |
+          if grep -rEn "(AKIA[0-9A-Z]{16}|password\s*=|SECRET_KEY\s*=)" \
+             --include="*.md" --include="*.txt" --include="*.env" . ; then
+            echo "::error::機密情報らしき文字列を検出しました"
+            exit 1
+          fi
+          echo "機密情報は検出されませんでした"
+
+      - name: Check for conflict markers
+        run: |
+          if grep -rn "^<<<<<<<\|^>>>>>>>" --include="*.md" . ; then
+            echo "::error::コンフリクトマーカーが残っています"
+            exit 1
+          fi
+          echo "コンフリクトマーカーはありません"

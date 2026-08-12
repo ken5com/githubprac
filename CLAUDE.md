@@ -14,7 +14,7 @@ This is a personal practice repository for learning Git/GitHub operations (`gith
 - `pull.txt`, `pull2.txt`, `pull3.txt`, `raiting.txt` — empty placeholder files created during PR/pull exercises; not meant to hold real content.
 - `.github/pull_request_template.md` — PR description template (概要/変更内容/確認方法/関連Issue/チェックリスト). Follow its sections when drafting PR bodies for this repo.
 - `.github/workflows/check.yml` — "Basic Checks" CI workflow that runs on PRs into `main`:
-  - Greps `.md`/`.txt`/`.env` files for secret-like patterns (AWS access keys, `password =`, `SECRET_KEY =`) and fails the build if found.
+  - Greps `.md`/`.txt`/`.env` files for secret-like patterns (AWS access keys and common secret-variable assignments — see `check.yml` for the exact regex) and fails the build if found.
   - Greps `.md` files for unresolved conflict markers (`<<<<<<<` / `>>>>>>>`) and fails the build if found.
   - Keep any new Markdown/text content free of these patterns so CI stays green.
 
